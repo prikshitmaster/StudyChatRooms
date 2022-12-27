@@ -1,0 +1,26 @@
+{% include 'index.html' %}
+{% block content %}
+    <style>
+     .profile-container{
+         display: grid;
+         grid-template-columns: 1fr 3fr 1fr;
+     }
+
+    </style>
+
+    <div class="profile-container">
+        <div>
+            {% include 'base/room/browse_component.html' %}
+
+        </div>
+
+        <div>
+            {% include 'base/room/room_activity_component.html' %}
+        </div>
+
+        <div>
+                {% include 'base/room/recent_activity_component.html' %}
+        </div>
+    </div>
+
+{% endblock %}

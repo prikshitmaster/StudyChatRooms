@@ -1,0 +1,27 @@
+{% include 'index.html' %}
+{% block content %}
+
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+        }
+
+
+    </style>
+    <h1>Room</h1>
+    <hr>
+    <div class="container">
+
+
+        <div>
+
+            {% include 'base/room/room_conversation.html' %}
+        </div>
+        <div>
+
+                        {% include 'base/room/room_participate.html' %}
+
+        </div>
+    </div>
+{% endblock content %}

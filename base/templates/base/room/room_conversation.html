@@ -1,0 +1,26 @@
+  <h3>{{ room.name }}</h3>
+
+            <p>
+                {{ room.description }}
+            </p>
+            <h1>Conversion</h1>
+            <hr>
+            {% for message in room_message %}
+                {% if  request.user == message.user %}
+                <small> <a href="{% url 'deletemessage' message.id %}">delete</a></small>
+                {% endif %}
+                <small> @{{ message.user }} {{ message.created | timesince }} ago</small>
+                <p>{{ message.body }}</p>
+                <hr>
+            {% endfor %}
+
+
+            {% if request.user.is_authenticated %}
+                <form method="post" action="">
+                    {% csrf_token %}
+
+                    <input type="text" name="comment" placeholder="write you comment">
+                    <button type="submit">Sumbit</button>
+
+                </form>
+            {% endif %}
